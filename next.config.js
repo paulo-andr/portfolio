@@ -8,6 +8,10 @@ const nextConfig = {
     // Will be available on both server and client
     basePath: isProd ? '/portfolio/' : '/'
   },
+  images: {
+    loader: 'akamai',
+    path: '',
+  }
 
 }
 
