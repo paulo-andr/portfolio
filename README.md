@@ -1,4 +1,4 @@
-portuDAO public landing page.
+3D Artist Portfolio.
 
 ## Getting Started
 
