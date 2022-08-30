@@ -33,7 +33,7 @@ const SingleArt = ({ art }: { art: IArt }) => {
 
 export default SingleArt;
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { slug: string } }) {
   const { art } = await hygraph.request(
     `
     query ArtQuery($slug: String!) {
