@@ -52,6 +52,18 @@ const customStyles = css`
     src: url(${publicRuntimeConfig.basePath}fonts/AbrilFatface.ttf);
     font-display: swap;
   }
+
+  body::-webkit-scrollbar {
+    width: 12px;
+  }
+  body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 20px;
+    border: 3px solid black;
+  }
 `;
 
 const GlobalStyles = () => (
