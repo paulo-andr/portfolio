@@ -27,7 +27,6 @@ jobs:
           npm run export
         env:
           NEXT_PUBLIC_HYGRAPH_URL: ${{ secrets.HYGRAPH_URL }}
-        env:
           NEXT_PUBLIC_HYGRAPH_TOKEN: ${{ secrets.HYGRAPH_TOKEN }}
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
