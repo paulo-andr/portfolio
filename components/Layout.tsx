@@ -4,6 +4,9 @@ import tw, { styled } from "twin.macro";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "usehooks-ts";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
 
 interface Props {
   children: ReactElement;
@@ -71,9 +74,11 @@ export default function Layout({ children }: Props): JSX.Element {
         </Hamburger>
         <AsideContainer id="sidernav">
           <Logo>
-            <Link href="/" passHref>
+            <Link href={`${publicRuntimeConfig.basePath}`} passHref>
               <a
-                style={{ backgroundImage: "url(img/bg.jpg)" }}
+                style={{
+                  backgroundImage: `url(${publicRuntimeConfig.basePath}img/bg.jpg)`,
+                }}
                 onClick={() => isMobile && handleCloseMobileMenu()}
               >
                 Paulo Andrade
@@ -83,7 +88,7 @@ export default function Layout({ children }: Props): JSX.Element {
           <NavContainer>
             <ul>
               <li>
-                <Link href="/" passHref>
+                <Link href={`${publicRuntimeConfig.basePath}`} passHref>
                   <Tag
                     active={router.pathname === "/"}
                     onClick={() => isMobile && handleCloseMobileMenu()}
@@ -93,7 +98,7 @@ export default function Layout({ children }: Props): JSX.Element {
                 </Link>
               </li>
               <li>
-                <Link href="/about" passHref>
+                <Link href={`${publicRuntimeConfig.basePath}about`} passHref>
                   <Tag
                     active={router.pathname === "/about"}
                     onClick={() => isMobile && handleCloseMobileMenu()}
@@ -103,7 +108,7 @@ export default function Layout({ children }: Props): JSX.Element {
                 </Link>
               </li>
               <li>
-                <Link href="/contacts" passHref>
+                <Link href={`${publicRuntimeConfig.basePath}contacts`} passHref>
                   <Tag
                     active={router.pathname === "/contacts"}
                     onClick={() => isMobile && handleCloseMobileMenu()}
@@ -130,10 +135,10 @@ export default function Layout({ children }: Props): JSX.Element {
 }
 
 const AsideContainer = styled.aside`
-  padding-top: 3em;
+  padding-top: 2rem;
   padding-bottom: 40px;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 2rem;
+  padding-right: 2rem;
   width: 25%;
   position: fixed;
   bottom: 0;
@@ -161,7 +166,7 @@ const AsideContainer = styled.aside`
     -ms-transform: translateX(-270px);
     -o-transform: translateX(-270px);
     transform: translateX(-270px);
-    padding-top: 2em;
+    padding-top: 2rem;
   }
 `;
 
@@ -290,7 +295,7 @@ const Tag = styled.a`
 
 const NavFooter = styled.div`
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   left: 0;
   right: 0;
   padding: 0 2em;
@@ -413,6 +418,7 @@ const Hamburger = styled.div`
 
 const MainContainer = styled.div`
   width: 100%;
+  padding: 0 2rem;
   float: right;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
