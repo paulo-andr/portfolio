@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     fontFamily: {
       flaticon: ['Flaticon', 'ui-sans-serif'],
+      abril: ['AbrilFatface', 'ui-sans-serif'],
     },
     extend: {
       colors: {
