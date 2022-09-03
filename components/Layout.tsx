@@ -90,7 +90,10 @@ export default function Layout({ children }: Props): JSX.Element {
               <li>
                 <Link href={`${publicRuntimeConfig.basePath}`} passHref>
                   <Tag
-                    active={router.pathname === "/"}
+                    active={
+                      router.pathname === "/" ||
+                      router.pathname.includes("/work")
+                    }
                     onClick={() => isMobile && handleCloseMobileMenu()}
                   >
                     Work
@@ -418,7 +421,6 @@ const Hamburger = styled.div`
 
 const MainContainer = styled.div`
   width: 100%;
-  padding: 0 2rem;
   float: right;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
