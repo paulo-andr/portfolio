@@ -64,6 +64,53 @@ const customStyles = css`
     border-radius: 20px;
     border: 3px solid black;
   }
+
+  .triple-slider {
+    padding: 32px 0;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    perspective: 1200px;
+  }
+
+  .triple-slider-main {
+    position: relative;
+    z-index: 10;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .triple-slider-prev,
+  .triple-slider-next {
+    opacity: 0.25;
+    position: absolute;
+    top: 50%;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .triple-slider-prev {
+    right: 50%;
+    transform: translateY(-50%) scale(0.75) rotateY(10deg);
+  }
+
+  .triple-slider-next {
+    left: 50%;
+    transform: translateY(-50%) scale(0.75) rotateY(-10deg);
+  }
+
+  .triple-slider .swiper {
+    width: 100%;
+    max-width: 640px;
+    height: 100%;
+    border-radius: 8px;
+  }
+
+  .triple-slider .bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 const GlobalStyles = () => (
