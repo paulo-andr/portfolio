@@ -32,7 +32,7 @@ const Contacts: NextPage = () => {
                   <animated.div style={style}>
                     <div tw="p-6" className="text">
                       <h2 tw="mb-4 text-center">
-                        You can follow my<span>&nbsp;Work</span>&nbsp;, or
+                        Follow my<span>&nbsp;Work</span>&nbsp;, or
                         <span>&nbsp;Contact</span>&nbsp;me through the links
                         available down below
                       </h2>
