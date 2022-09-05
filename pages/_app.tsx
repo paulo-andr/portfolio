@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 
 import GlobalStyles from "./../styles/GlobalStyles";
 import "nprogress/nprogress.css";
+import "react-image-lightbox/style.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   Router.events.on("routeChangeStart", () => NProgress.start());

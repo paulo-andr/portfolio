@@ -62,7 +62,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const { arts } = await hygraph.request(
     `
       {
-        arts {
+        arts(orderBy: createdAt_DESC){
           id
           slug
           title

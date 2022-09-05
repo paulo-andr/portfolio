@@ -22,16 +22,16 @@ const CardImage = ({ title, type, tools, imgUrl, link }: IProps) => {
       </div>
       <div tw="h-[30%] flex flex-col items-center justify-between text-center m-4">
         <div>
-          <p tw="text-xl font-abril text-white">{title}</p>
-          <p tw="uppercase text-xs my-2 font-bold">{type}</p>
-          <p tw="text-gray-50 mb-6 text-xs">{tools}</p>
+          <p tw="text-xl font-kanitBold text-white">{title}</p>
+          <p tw="uppercase text-xs my-2 font-bold font-poppins">{type}</p>
+          <p tw="text-gray-50 mb-6 text-xs font-poppins">{tools}</p>
         </div>
         <div>
           {link && (
             <Link href={link}>
               <a
                 ref={hoverRef}
-                tw="bg-black hover:bg-black/30 hover:cursor-pointer focus:ring-black mb-2 px-8 py-2.5 text-white focus:outline-none focus:ring-4 transition duration-500"
+                tw="bg-black hover:bg-black/30 hover:cursor-pointer focus:ring-black mb-2 px-8 py-2.5 text-white focus:outline-none focus:ring-4 transition duration-500 font-poppins"
               >
                 View
               </a>

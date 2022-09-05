@@ -1,7 +1,9 @@
 import { GraphQLClient } from "graphql-request";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "twin.macro";
 import { animated, config, useTransition } from "@react-spring/web";
+import { useMediaQuery } from "usehooks-ts";
+import Lightbox from "react-image-lightbox";
 
 import createTripleSlider from "../../components/Slider";
 
@@ -28,25 +30,32 @@ interface IArt {
 }
 
 const SingleArt = ({ art }: { art: IArt }) => {
+  const [fullImage, setFullImage] = useState({ index: 0, open: false });
+  const isMobile = useMediaQuery("(max-width: 991px)");
+
   const transition = useTransition(true, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     delay: 1000,
     config: config.molasses,
-    reset: true,
   });
 
   useEffect(() => {
     const sliderEl = document.querySelector(".triple-slider");
+    const slider = createTripleSlider(sliderEl);
 
-    createTripleSlider(sliderEl);
+    slider.on("click", function (e: any) {
+      setFullImage({ index: e.realIndex, open: true });
+    });
   }, [art.images]);
 
   return (
     <div tw="my-8 px-8">
-      <h1 tw="text-5xl font-abril text-white mb-6">{art.title}</h1>
-      <p tw="mb-6">{art.description.text}</p>
+      <h1 tw="text-5xl font-kanit text-white mb-6 font-kanitBold">
+        {art.title}
+      </h1>
+      <p tw="mb-6 font-poppins">{art.description.text}</p>
       {transition(
         (style, item) =>
           item && (
@@ -67,10 +76,41 @@ const SingleArt = ({ art }: { art: IArt }) => {
                       </div>
                     ))}
                   </div>
+                  {isMobile && (
+                    <>
+                      <div className="swiper-button-next"></div>
+                      <div className="swiper-button-prev"></div>
+                    </>
+                  )}
                 </div>
               </div>
             </animated.div>
           )
+      )}
+      {fullImage.open && (
+        <Lightbox
+          mainSrc={art.images[fullImage.index].url}
+          nextSrc={art.images[(fullImage.index + 1) % art.images.length].url}
+          prevSrc={
+            art.images[
+              (fullImage.index + art.images.length - 1) % art.images.length
+            ].url
+          }
+          onCloseRequest={() => setFullImage({ index: 0, open: false })}
+          onMovePrevRequest={() =>
+            setFullImage((prevState) => ({
+              ...prevState,
+              index:
+                (prevState.index + art.images.length - 1) % art.images.length,
+            }))
+          }
+          onMoveNextRequest={() =>
+            setFullImage((prevState) => ({
+              ...prevState,
+              index: (prevState.index + 1) % art.images.length,
+            }))
+          }
+        />
       )}
     </div>
   );

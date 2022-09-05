@@ -29,7 +29,7 @@ const Contacts: NextPage = () => {
                 item && (
                   <animated.div style={style}>
                     <div tw="p-6" className="text">
-                      <h2 tw="mb-4 text-center">
+                      <h2 tw="mb-4 text-center font-kanitBold">
                         Follow my<span>&nbsp;Work</span>&nbsp;, or
                         <span>&nbsp;Contact</span>&nbsp;me through the links
                         available down below
@@ -45,7 +45,7 @@ const Contacts: NextPage = () => {
                 item && (
                   <animated.div style={style}>
                     <ContactsContainer>
-                      <div tw="flex justify-start w-full">
+                      <div tw="flex justify-start w-full font-poppins">
                         <div>
                           <img
                             className="contacts-icon"
@@ -59,7 +59,7 @@ const Contacts: NextPage = () => {
                           </a>
                         </div>
                       </div>
-                      <div tw="flex justify-start w-full">
+                      <div tw="flex justify-start w-full font-poppins">
                         <div>
                           <img
                             className="contacts-icon"
@@ -77,7 +77,7 @@ const Contacts: NextPage = () => {
                           </a>
                         </div>
                       </div>
-                      <div tw="flex justify-start w-full">
+                      <div tw="flex justify-start w-full font-poppins">
                         <div>
                           <img
                             className="contacts-icon"
@@ -95,7 +95,7 @@ const Contacts: NextPage = () => {
                           </a>
                         </div>
                       </div>
-                      <div tw="flex justify-start w-full">
+                      <div tw="flex justify-start w-full font-poppins">
                         <div>
                           <img
                             className="contacts-icon"
@@ -146,7 +146,6 @@ const Container = styled.div`
 
   .text h2 {
     font-size: 40px;
-    font-family: "AbrilFatface";
     line-height: 1.2;
     color: #fff;
   }

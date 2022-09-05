@@ -74,7 +74,7 @@ export default function Layout({ children }: Props): JSX.Element {
             <Link href="/" passHref>
               <a
                 style={{
-                  backgroundImage: `url(img/bg.jpg)`,
+                  backgroundImage: `url(/img/title-bg.jpg)`,
                 }}
                 onClick={() => isMobile && handleCloseMobileMenu()}
               >
@@ -120,10 +120,15 @@ export default function Layout({ children }: Props): JSX.Element {
             </ul>
           </NavContainer>
           <NavFooter>
-            <p>
-              {`Copyright ${data} All rights reserved | The Original Template is made by `}
-              <a href="https://colorlib.com" target="_blank" rel="noreferrer">
-                Colorlib.com
+            <p tw="font-poppins">
+              {`Copyright ${data} All rights reserved | Portfolio made by `}
+              <a
+                href="https://github.com/MickaelNeves"
+                target="_blank"
+                rel="noreferrer"
+                tw="hover:text-blue"
+              >
+                Mickael Neves
               </a>
             </p>
           </NavFooter>
@@ -146,7 +151,7 @@ const AsideContainer = styled.aside`
   left: 0;
   right: 0;
   overflow-y: hidden;
-  z-index: 1001;
+  z-index: 1000;
   background: url(/img/aside.png) no-repeat right top #000;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -171,7 +176,7 @@ const AsideContainer = styled.aside`
 `;
 
 const Logo = styled.h1`
-  ${tw`font-abril`}
+  ${tw`font-lobster`}
 
   display: block;
   width: 100%;
@@ -283,7 +288,7 @@ const NavContainer = styled.nav`
 const Tag = styled.a`
   ${(props: { active: boolean }) =>
     props.active
-      ? `color: #5271ff !important; &:after {
+      ? `color: #5271ff !important; font-family: "PoppinsBold", Arial, sans-serif !important; &:after {
       visibility: visible !important;
       -webkit-transform: scaleX(1) !important;
       -moz-transform: scaleX(1) !important;
@@ -319,7 +324,7 @@ const Hamburger = styled.div`
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 9999;
+  z-index: 1000;
   cursor: pointer;
   opacity: 0;
   visibility: hidden;

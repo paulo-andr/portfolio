@@ -16,7 +16,7 @@ const About: NextPage = () => {
       <div tw="w-full mr-auto ml-auto pr-0 pl-0">
         <div tw="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <ImageContainer imgSrc="img/about.jpg">
+            <ImageContainer imgSrc="/img/about.jpg">
               <img
                 id="div-mobile"
                 className="fa-chevron-down"
@@ -31,26 +31,23 @@ const About: NextPage = () => {
                 item && (
                   <animated.div style={style}>
                     <div tw="p-6 lg:pr-16" className="text">
-                      <h2 tw="mb-4">
-                        Hello! I&apos;m<span>&nbsp;Paulo Andrade</span>&nbsp;
+                      <h2 tw="mb-4 font-kanitBold">
+                        Hello! I&apos;m
+                        <span tw="font-lobster">&nbsp;Paulo Andrade</span>&nbsp;
                         currently working as a Freelancer
                       </h2>
-                      <p tw="mb-4" className="text">
+                      <p tw="mb-4 font-poppins" className="text">
                         At the start of 2020 I decided to express my love for
                         video games and the digital arts, by becoming a
                         self-taught Blender and Substance 3D artist in my spare
                         time.
                       </p>
-                      <p tw="mb-12" className="text">
+                      <p tw="mb-12 font-poppins" className="text">
                         More recently, I enrolled in a course where I studied
                         the fundamentals of drawing, character and scenery
                         design. I covered most of the basics of Maya and Zbrush,
                         organic and non-organic modeling, Re-topology, UV&apos;s
                         and texturing.
-                      </p>
-                      <p className="text">
-                        Also had to struggle a bit with HTML and CSS to redo the
-                        original template for this website!
                       </p>
                     </div>
                   </animated.div>
@@ -85,7 +82,6 @@ const Container = styled.div`
 
   .text h2 {
     font-size: 40px;
-    font-family: "AbrilFatface";
     line-height: 1.2;
     color: #fff;
   }

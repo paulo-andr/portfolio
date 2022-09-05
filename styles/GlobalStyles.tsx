@@ -8,6 +8,7 @@ const customStyles = css`
     line-height: 1.8;
     font-weight: 400;
     color: #666666;
+    font-family: "Poppins", Arial, sans-serif;
   }
   body.offcanvas {
     overflow-x: hidden;
@@ -40,13 +41,43 @@ const customStyles = css`
 
   @font-face {
     font-family: Flaticon;
-    src: url(fonts/Flaticon.ttf);
+    src: url(/fonts/Flaticon.ttf);
     font-display: swap;
   }
 
   @font-face {
     font-family: AbrilFatface;
-    src: url(fonts/AbrilFatface.ttf);
+    src: url(/fonts/AbrilFatface.ttf);
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: LobsterRegular;
+    src: url(/fonts/Lobster-Regular.ttf);
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: Poppins;
+    src: url(/fonts/Poppins-Regular.ttf);
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: PoppinsBold;
+    src: url(/fonts/Poppins-Bold.ttf);
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: KanitRegular;
+    src: url(/fonts/Kanit-Regular.ttf);
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: KanitBold;
+    src: url(/fonts/Kanit-Bold.ttf);
     font-display: swap;
   }
 
@@ -107,6 +138,11 @@ const customStyles = css`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #5271ff;
   }
 `;
 

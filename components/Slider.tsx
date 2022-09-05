@@ -1,7 +1,8 @@
 /* eslint-disable prefer-const */
-import Swiper, { Controller, Parallax } from "swiper";
+import Swiper, { Controller, Navigation } from "swiper";
 
 import "swiper/css";
+import "swiper/css/navigation";
 
 export default function createTripleSlider(el: any): any {
   // main swiper el
@@ -32,10 +33,13 @@ export default function createTripleSlider(el: any): any {
 
   // common params for all swipers
   const commonParams = {
-    modules: [Controller, Parallax],
+    modules: [Controller, Navigation],
     speed: 600,
     loop: true,
-    parallax: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   };
 
   let tripleMainSwiper: Swiper;

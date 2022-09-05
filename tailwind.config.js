@@ -7,6 +7,11 @@ module.exports = {
     fontFamily: {
       flaticon: ['Flaticon', 'ui-sans-serif'],
       abril: ['AbrilFatface', 'ui-sans-serif'],
+      lobster: ['LobsterRegular', 'ui-sans-serif'],
+      poppins: ['Poppins', 'ui-sans-serif'],
+      poppinsBold: ['PoppinsBold', 'ui-sans-serif'],
+      kanit: ['KanitRegular', 'ui-sans-serif'],
+      kanitBold: ['KanitBold', 'ui-sans-serif'],
     },
     extend: {
       colors: {
@@ -15,7 +20,8 @@ module.exports = {
         'dark-green': '#244740',
         'dark-red': '#F34708',
         'input': '#050505',
-        'input-gray': '#303030'
+        'input-gray': '#303030',
+        'blue' : '#5271ff'
       },
       lineHeight: {
         'almost-none': '1.15',
