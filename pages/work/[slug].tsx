@@ -100,6 +100,12 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     }
   );
 
+  if (!art) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       art,
@@ -122,6 +128,6 @@ export async function getStaticPaths() {
     paths: arts.map(({ slug }: { slug: string }) => ({
       params: { slug },
     })),
-    fallback: false,
+    fallback: "blocking",
   };
 }

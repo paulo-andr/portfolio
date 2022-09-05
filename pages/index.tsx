@@ -2,6 +2,7 @@ import { GraphQLClient } from "graphql-request";
 import getConfig from "next/config";
 import "twin.macro";
 import { animated, config, useTransition } from "@react-spring/web";
+import { GetServerSideProps } from "next";
 
 import CardImage from "../components/CardImage";
 
@@ -54,7 +55,7 @@ const Home = ({ arts }: { arts: IArt[] }) => {
 
 export default Home;
 
-export async function getStaticProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_URL || "", {
     headers: {
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_HYGRAPH_TOKEN}`,
@@ -86,10 +87,15 @@ export async function getStaticProps() {
     `
   );
 
+  if (!arts) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       arts,
     },
-    revalidate: 10,
   };
-}
+};
