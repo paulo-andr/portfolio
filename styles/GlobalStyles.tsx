@@ -1,8 +1,5 @@
 import { Global, css } from "@emotion/react";
 import tw, { GlobalStyles as BaseStyles } from "twin.macro";
-import getConfig from "next/config";
-
-const { publicRuntimeConfig } = getConfig();
 
 const customStyles = css`
   body {
@@ -43,13 +40,13 @@ const customStyles = css`
 
   @font-face {
     font-family: Flaticon;
-    src: url(${publicRuntimeConfig.basePath}fonts/Flaticon.ttf);
+    src: url(fonts/Flaticon.ttf);
     font-display: swap;
   }
 
   @font-face {
     font-family: AbrilFatface;
-    src: url(${publicRuntimeConfig.basePath}fonts/AbrilFatface.ttf);
+    src: url(fonts/AbrilFatface.ttf);
     font-display: swap;
   }
 

@@ -4,9 +4,6 @@ import tw, { styled } from "twin.macro";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "usehooks-ts";
-import getConfig from "next/config";
-
-const { publicRuntimeConfig } = getConfig();
 
 interface Props {
   children: ReactElement;
@@ -74,10 +71,10 @@ export default function Layout({ children }: Props): JSX.Element {
         </Hamburger>
         <AsideContainer id="sidernav">
           <Logo>
-            <Link href={`${publicRuntimeConfig.basePath}`} passHref>
+            <Link href="/" passHref>
               <a
                 style={{
-                  backgroundImage: `url(${publicRuntimeConfig.basePath}img/bg.jpg)`,
+                  backgroundImage: `url(img/bg.jpg)`,
                 }}
                 onClick={() => isMobile && handleCloseMobileMenu()}
               >
@@ -88,7 +85,7 @@ export default function Layout({ children }: Props): JSX.Element {
           <NavContainer>
             <ul>
               <li>
-                <Link href={`${publicRuntimeConfig.basePath}`} passHref>
+                <Link href="/" passHref>
                   <Tag
                     active={
                       router.pathname === "/" ||
@@ -101,7 +98,7 @@ export default function Layout({ children }: Props): JSX.Element {
                 </Link>
               </li>
               <li>
-                <Link href={`${publicRuntimeConfig.basePath}about`} passHref>
+                <Link href="/about" passHref>
                   <Tag
                     active={router.pathname === "/about"}
                     onClick={() => isMobile && handleCloseMobileMenu()}
@@ -111,7 +108,7 @@ export default function Layout({ children }: Props): JSX.Element {
                 </Link>
               </li>
               <li>
-                <Link href={`${publicRuntimeConfig.basePath}contacts`} passHref>
+                <Link href="/contacts" passHref>
                   <Tag
                     active={router.pathname === "/contacts"}
                     onClick={() => isMobile && handleCloseMobileMenu()}

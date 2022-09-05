@@ -1,11 +1,8 @@
 import type { NextPage } from "next";
-import getConfig from "next/config";
 import tw, { styled } from "twin.macro";
 import { animated, config, useTransition } from "@react-spring/web";
 
 const About: NextPage = () => {
-  const { publicRuntimeConfig } = getConfig();
-
   const transition = useTransition(true, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
@@ -19,13 +16,11 @@ const About: NextPage = () => {
       <div tw="w-full mr-auto ml-auto pr-0 pl-0">
         <div tw="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <ImageContainer
-              imgSrc={`${publicRuntimeConfig.basePath}img/about.jpg`}
-            >
+            <ImageContainer imgSrc="img/about.jpg">
               <img
                 id="div-mobile"
                 className="fa-chevron-down"
-                src={`${publicRuntimeConfig.basePath}icons/chevron-down-solid.svg`}
+                src="icons/chevron-down-solid.svg"
                 alt="arrow down"
               />
             </ImageContainer>

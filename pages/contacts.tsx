@@ -1,10 +1,8 @@
 import type { NextPage } from "next";
 import tw, { styled } from "twin.macro";
 import { animated, config, useTransition } from "@react-spring/web";
-import getConfig from "next/config";
 
 const Contacts: NextPage = () => {
-  const { publicRuntimeConfig } = getConfig();
   const transition1 = useTransition(true, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
@@ -51,7 +49,7 @@ const Contacts: NextPage = () => {
                         <div>
                           <img
                             className="contacts-icon"
-                            src={`${publicRuntimeConfig.basePath}icons/envelope-solid.svg`}
+                            src="icons/envelope-solid.svg"
                             alt="envelope"
                           />
                         </div>
@@ -65,7 +63,7 @@ const Contacts: NextPage = () => {
                         <div>
                           <img
                             className="contacts-icon"
-                            src={`${publicRuntimeConfig.basePath}icons/artstation.svg`}
+                            src="icons/artstation.svg"
                             alt="artstation"
                           />
                         </div>
@@ -83,7 +81,7 @@ const Contacts: NextPage = () => {
                         <div>
                           <img
                             className="contacts-icon"
-                            src={`${publicRuntimeConfig.basePath}icons/behance.svg`}
+                            src="icons/behance.svg"
                             alt="behance"
                           />
                         </div>
@@ -101,7 +99,7 @@ const Contacts: NextPage = () => {
                         <div>
                           <img
                             className="contacts-icon"
-                            src={`${publicRuntimeConfig.basePath}icons/fa-ig.svg`}
+                            src="icons/fa-ig.svg"
                             alt="ig"
                           />
                         </div>

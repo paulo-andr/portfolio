@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import NProgress from "nprogress";
 import Router from "next/router";
+import App from "next/app";
 
 import Layout from "../components/Layout";
 
@@ -21,5 +22,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
+MyApp.getInitialProps = async (ctx: any) => {
+  const appProps = await App.getInitialProps(ctx);
+
+  return { ...appProps };
+};
 
 export default MyApp;

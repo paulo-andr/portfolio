@@ -1,12 +1,9 @@
 import { GraphQLClient } from "graphql-request";
-import getConfig from "next/config";
 import "twin.macro";
 import { animated, config, useTransition } from "@react-spring/web";
 import { GetServerSideProps } from "next";
 
 import CardImage from "../components/CardImage";
-
-const { publicRuntimeConfig } = getConfig();
 
 interface IArt {
   id: string;
@@ -44,7 +41,7 @@ const Home = ({ arts }: { arts: IArt[] }) => {
               type={item.type}
               tools={item.tools}
               imgUrl={item.cover.url}
-              link={`${publicRuntimeConfig.basePath}work/${item.slug}`}
+              link={`/work/${item.slug}`}
             />
           </div>
         </animated.div>
