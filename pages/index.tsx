@@ -90,5 +90,6 @@ export async function getStaticProps() {
     props: {
       arts,
     },
+    revalidate: 10,
   };
 }

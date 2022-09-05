@@ -2,6 +2,10 @@ import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { extractCritical } from "@emotion/server";
 
+import Analytics from "../components/Analytics";
+
+const ANALYTICS_MEASUREMENT_ID = "G-6P4HNFNRLN";
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -23,7 +27,11 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          {process.env.NODE_ENV === "production" && (
+            <Analytics analyticsMeasurementId={ANALYTICS_MEASUREMENT_ID} />
+          )}
+        </Head>
         <body>
           <Main />
           <NextScript />

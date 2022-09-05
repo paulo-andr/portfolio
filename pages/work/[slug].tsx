@@ -104,6 +104,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     props: {
       art,
     },
+    revalidate: 10,
   };
 }
 
