@@ -2,12 +2,20 @@ import { Global, css } from "@emotion/react";
 import tw, { GlobalStyles as BaseStyles } from "twin.macro";
 
 const customStyles = css`
+  html {
+    background: url(img/stars-bg.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
   body {
-    background: #1e1e1e;
+    background: transparent;
     font-size: 15px;
     line-height: 1.8;
     font-weight: 400;
-    color: #666666;
+    color: white;
     font-family: "Poppins", Arial, sans-serif;
   }
   body.offcanvas {
@@ -78,6 +86,18 @@ const customStyles = css`
   @font-face {
     font-family: KanitBold;
     src: url(/fonts/Kanit-Bold.ttf);
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: ExoBold;
+    src: url(/fonts/Exo-Bold.ttf);
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: ExoRegular;
+    src: url(/fonts/Exo-Regular.ttf);
     font-display: swap;
   }
 

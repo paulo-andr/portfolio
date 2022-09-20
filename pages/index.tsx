@@ -1,98 +1,54 @@
-import { GraphQLClient } from "graphql-request";
 import "twin.macro";
-import { animated, config, useTransition } from "@react-spring/web";
-import { GetServerSideProps } from "next";
+import tw, { styled } from "twin.macro";
 
-import CardImage from "../components/CardImage";
-
-interface IArt {
-  id: string;
-  slug: string;
-  title: string;
-  tools: string;
-  type: string;
-  cover: {
-    id: string;
-    url: string;
-  };
-  description: {
-    text: string;
-  };
-  images: [{ id: string; url: string }];
-}
-
-const Home = ({ arts }: { arts: IArt[] }) => {
-  const transitions = useTransition(arts, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    trail: 100,
-    config: config.molasses,
-  });
-
+const Home = () => {
   return (
-    <div tw="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 my-8 px-8">
-      {transitions((style, item) => (
-        <animated.div key={item.id} style={style}>
-          <div tw="grid w-full h-full">
-            <CardImage
-              key={item.id}
-              title={item.title}
-              type={item.type}
-              tools={item.tools}
-              imgUrl={item.cover.url}
-              link={`/work/${item.slug}`}
-            />
-          </div>
-        </animated.div>
-      ))}
-    </div>
+    <section tw="flex flex-col justify-center items-center h-screen">
+      <h1 tw="text-center mb-10 font-exoBold text-5xl lg:text-7xl opacity-70">
+        Coming <br /> Soon
+      </h1>
+      <p tw="text-center mb-4 font-exoBold text-2xl lg:text-4xl opacity-70">
+        Paulo Andrade
+      </p>
+      <p tw="text-center mb-4 font-exo text-xl lg:text-2xl opacity-70">
+        3D Artist
+      </p>
+      <LinksContainer>
+        <a tw="mx-2" href="mailto: p96andrade@gmail.com">
+          <img
+            style={{ color: "white" }}
+            src="icons/envelope-solid.svg"
+            alt="envelope"
+            width={32}
+            height={32}
+          />
+        </a>
+        <a
+          tw="mx-2"
+          href="https://www.artstation.com/paulo_andrade_art"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            style={{ color: "white" }}
+            src="icons/artstation.svg"
+            alt="artstation"
+            width={32}
+            height={32}
+          />
+        </a>
+      </LinksContainer>
+    </section>
   );
 };
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_URL || "", {
-    headers: {
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_HYGRAPH_TOKEN}`,
-    },
-  });
+const LinksContainer = styled.div`
+  ${tw`flex justify-center opacity-70`}
 
-  const { arts } = await hygraph.request(
-    `
-      {
-        arts(orderBy: createdAt_DESC){
-          id
-          slug
-          title
-          tools
-          type
-          cover {
-            id
-            url
-          }
-          description {
-            text
-          }
-          images {
-            id
-            url
-          }
-        }
-      }
-    `
-  );
-
-  if (!arts) {
-    return {
-      notFound: true,
-    };
+  img {
+    filter: invert(100%) sepia(7%) saturate(0%) hue-rotate(267deg)
+      brightness(110%) contrast(100%);
   }
-
-  return {
-    props: {
-      arts,
-    },
-  };
-};
+`;

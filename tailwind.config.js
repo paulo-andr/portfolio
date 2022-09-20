@@ -12,6 +12,8 @@ module.exports = {
       poppinsBold: ['PoppinsBold', 'ui-sans-serif'],
       kanit: ['KanitRegular', 'ui-sans-serif'],
       kanitBold: ['KanitBold', 'ui-sans-serif'],
+      exo: ['ExoRegular', 'ui-sans-serif'],
+      exoBold: ['ExoBold', 'ui-sans-serif'],
     },
     extend: {
       colors: {
